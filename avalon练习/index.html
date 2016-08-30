@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <style>
+              .boxteams{
+                  width: 530px;
+                  height: 530px;
+                  clear: both;
+                  margin: 50px auto;
+              }
+              p{
+                  margin: 5px 0;
+              }
+              .box-a{
+                  float: left;
+                  width: 250px;
+                  height: 250px;
+                  border: 1px solid red;
+                  padding: 5px;                 
+              }
+        </style>
+        <script src="jquery.min.js"></script>
+        <script src="avalon.js"></script>
+
+        <script>
+            
+            var vm = avalon.define({
+                $id:'boxteams',
+                textname:'',
+                data:
+                    [
+                    {Name:'张三',Moder:'13215614321',Nickname:'250',text:[{data:'2016-8-25',list:'3333333'}],togger:false,},
+                    {Name:'张四',Moder:'13215614321',Nickname:'360',text:[{data:'2016-8-27',list:'4444444'}],togger:false,},
+                    {Name:'张五',Moder:'13215614321',Nickname:'470',text:[{data:'2016-8-28',list:'5555555'}],togger:false,},
+                    {Name:'张六',Moder:'13215614321',Nickname:'580',text:[{data:'2016-8-26',list:'6666666'}],togger:false,}
+                ],
+                OnClick:function(list){
+                    list.togger = !list.togger;
+                },
+                OnbtnClick:function(dom){
+                    var timer = '2016-15-15';                  
+                    var Now = {};
+                    Now.data = timer;
+                    Now.list = vm.textname;
+                    dom.text.unshift(Now)
+                }
+            })
+        </script>
+    </head>
+    <body ms-controller='boxteams'>
+        <div class="boxteams">
+            <div class="box-a" ms-for='item in ##data'>
+                <p ms-text='item.Name'></p>
+                <p ms-text='item.Moder'></p>
+                <p ms-text='item.Nickname'></p>
+                <div ms-for='max in item.text'>
+                    <span ms-text='max.data'></span>
+                    <span ms-text='max.list'></span>
+                </div>
+                <button type="" ms-click='##OnClick(item)' ms-if='!item.togger'>点击</button>
+                <div ms-visible='item.togger'>
+                    <textarea cols="32" rows="4" ms-duplex='##textname'></textarea>
+                    <button>取消</button><button ms-click='##OnbtnClick(item)'>确定</button>
+                </div>
+            </div>           
+        </div>
+    </body>
+</html>
