@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="js/jquery.min.js"></script>
+    </head>
+    <body>
+        <p> 1、 给定一个字符串例如：“abaasdffggghhjjkkgfddsssss3444343”；问题如下：</p>  
+        <ul>
+            <li>1、 字符串的字节长度:<span class="b"></span></li>
+            <li>2、 取出指定位置的字符，如：0,3,5,9等:<span class="c"></span></li>
+            <li>3、 查找指定字符是否在以上字符串中存在，如：i，c ，b等 :<span class="d"></span></li>
+            <li>4、 替换指定的字符，如：g替换为22,ss替换为b等操作方法:<span class="e"></span></li>
+            <li>5、 截取指定开始位置到结束位置的字符串，如：取得1-5的字符串: <span class="f"></span></li>
+            <li>6、 找出以上字符串中出现次数最多的字符和出现的次数:<span class="g"></span> </li>
+            <li>7、 遍历字符串，并将遍历出的字符两头添加符号“@”输出至当前的文档页面。<span class="j"></span></li>
+        </ul>
+        <script>
+            var a = "abaasdffggghhjjkkgfddsssss3444343";
+            var b = a.length; 
+            $('.b').html(b)
+
+            var c1 = a.charAt(0)
+            var c2 = a.charAt(3)
+            var c3 = a.charAt(5)
+            var c4 = a.charAt(9)
+            $('.c').html(c1+' '+c2+' '+c3+' '+c4);
+
+            var d1 = a.indexOf('i')
+            var d2 = a.indexOf('c')
+            var d3 = a.indexOf('b')
+            $('.d').html(d1+' '+d2+' '+d3);
+
+            $('.e').html(a.replace(/\g/g,'22')+' '+a.replace('ss','b'));
+
+            $('.f').html(a.slice(0,5));
+
+            var maxLength = 0; //命名一个变量放置字母出现的最高次数并初始化为0
+            var result = ''; //命名一个变量放置结果输入  
+            while( a != '' ){ //循环迭代开始，并判断字符串是否为空
+                oldStr = a; //将原始的字符串变量赋值给新变量
+                getStr = a.substr(0,1); //用字符串的substr的方法得到第一个字符（首字母）
+                eval("a = a.replace(/"+getStr+"/g,'')"); //详细如补充  
+
+                if( oldStr.length-a.length > maxLength ) { //判断原始的字符串的长度减去替代后字符串长度是否大于之前出现的最大的字符串长度
+                    maxLength = oldStr.length-a.length; //两字符串长度相减得到最大的字符串长度
+                    result = getStr + "=" + maxLength //返回最大的字符串结果（字母、出现次数）
+                }
+            }  
+            $('.g').html(result);
+
+            var m = "abaasdffggghhjjkkgfddsssss3444343"
+            var h = m.split('')
+            var k = ['@']
+            h.push(k);
+            h.unshift(k);
+            var h1 = h.join('')
+            $('.j').html(h1);
+        </script>
+    </body>
+</html>
