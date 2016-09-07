@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" ng-app='myApp'>
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="js/angular.min.js"></script>
+        <script src="js/angular-route.min.js"></script>
+        <script src="js/controller/lastCtrl.js"></script>
+    </head>
+    <body>
+        <ul>
+            <li><a href="#/last">登录界面</a></li>
+            <li><a href="#/login">页面首页</a></li>
+            <li><a href="#/culst">咨询管理</a></li>
+            <li><a href="#/itme">关于我们</a></li>
+        </ul>
+        <div ng-view></div>
+        <script>
+            var app = angular.module('myApp',['ngRoute','lastCtrl']);
+            app.config(['$routeProvider',function($routeProvider){$routeProvider
+                .when('/last',{
+                    templateUrl:'view/last.html',
+                    controller:'culstCtrl',
+                }).when('/login',{
+                    templateUrl:'view/login.html',
+                    controller:'',
+                }).when('/culst',{
+                    templateUrl:'view/culst.html',
+                    controller:'',
+                }).otherwise({redirectTo:'/'})   
+                // .when('/',{template:'这是首页页面'})
+                // .when('/computers',{template:'这是电脑分类页面'})
+                // .when('/printers',{template:'这是打印机页面'})
+                // .otherwise({redirectTo:'/'});
+            }])
+        </script>
+    </body>
+</html>
