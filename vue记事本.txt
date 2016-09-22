@@ -1,0 +1,45 @@
+1. 添加路由
+
+   npm install vue-router --save
+
+2. 添加bootstrap
+
+   npm install vue-strap
+
+   import 'bootstrap/dist/css/bootstrap.css' 
+
+3. 路由设置
+
+   import VueRouter from 'vue-router'
+
+   
+import map from './routers'
+   
+   Vue.use(VueRouter)
+   
+   const router = new VueRouter()
+ 
+   const App = Vue.extend(app)
+
+   router.map(map)
+
+   router.start(App,'body')
+
+4. 图片的设置
+
+   {
+        
+      test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
+        
+      loader: 'url',
+        
+      query: {
+          
+           limit: 10000,
+          
+           name: utils.assetsPath('img/[name].[hash:7].[ext]')
+       
+      }
+      
+    },
+   
