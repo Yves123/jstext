@@ -1,14 +1,14 @@
-1. Ìí¼ÓÂ·ÓÉ
+1. ï¿½ï¿½ï¿½Â·ï¿½ï¿½
 
    npm install vue-router --save
 
-2. Ìí¼Óbootstrap
+2. ï¿½ï¿½ï¿½bootstrap
 
    npm install vue-strap
 
    import 'bootstrap/dist/css/bootstrap.css' 
 
-3. Â·ÓÉÉèÖÃ
+3. Â·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
    import VueRouter from 'vue-router'
 
@@ -25,7 +25,7 @@ import map from './routers'
 
    router.start(App,'body')
 
-4. Í¼Æ¬µÄÉèÖÃ
+4. Í¼Æ¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
    {
         
@@ -42,4 +42,5 @@ import map from './routers'
       }
       
     },
+    asdfasfasfdafasdfasdf
    
